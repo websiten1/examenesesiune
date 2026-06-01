@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { exams } from "@/data/exams";
 import MateriePageContent from "@/components/MateriePageContent";
+import MaterieRenderer from "@/components/MaterieRenderer";
 import CountdownTimer from "@/components/CountdownTimer";
 
 type Props = {
@@ -102,18 +103,17 @@ export default async function MateriePage({ params }: Props) {
             </div>
           ) : (
             <>
-              <div className="flex items-center gap-3 mb-6">
-                <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
-                  Materia de studiu
-                </h2>
-                {exam.materie.length > 0 && (
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">
-                    {exam.materie.length} capitole
-                  </span>
-                )}
-              </div>
+              {(exam.rezumat?.length || exam.materieComplet?.length || exam.test?.length) && (
+                <div className="flex items-center gap-3 mb-6">
+                  <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
+                    Materia de studiu
+                  </h2>
+                </div>
+              )}
               {exam.materie.length > 0 ? (
-                <MateriePageContent exam={exam} />
+                (exam.rezumat?.length || exam.materieComplet?.length || exam.test?.length)
+                  ? <MateriePageContent exam={exam} />
+                  : <MaterieRenderer blocks={exam.materie} />
               ) : (
                 <p className="text-slate-400 italic text-sm">
                   Materia nu a fost adăugată încă.

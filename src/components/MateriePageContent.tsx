@@ -81,7 +81,21 @@ export default function MateriePageContent({ exam }: Props) {
       {tab === "complet" && exam.materieComplet && (
         <CompletView blocks={exam.materieComplet} />
       )}
-      {tab === "test" && exam.test && <TestQuiz questions={exam.test} />}
+      {tab === "test" && exam.test && (
+        <>
+          <div
+            className="rounded-xl px-5 py-4 mb-6 text-sm"
+            style={{
+              background: "#fffbeb",
+              borderLeft: "4px solid #d97706",
+              color: "#374151",
+            }}
+          >
+            Acesta <strong>nu este examenul real</strong> — este un instrument de auto-testare pentru verificarea cunoștințelor. Răspunsurile nu sunt transmise nicăieri.
+          </div>
+          <TestQuiz questions={exam.test} />
+        </>
+      )}
     </>
   );
 }

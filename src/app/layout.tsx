@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://examenesesiune.vercel.app"),
-  title: "Calendar sesiune — Teologie Ortodoxă, Anul II",
+  title: "Calendar și rezumate sesiune, Anul II",
   description:
     "Calendarul examenelor și materialele de studiu pentru sesiunea Facultății de Teologie Ortodoxă «Sfântul Dumitru Stăniloae», Anul II.",
   openGraph: {
-    title: "Calendar sesiune — Teologie Ortodoxă, Anul II",
+    title: "Calendar și rezumate sesiune, Anul II",
     description:
       "Calendarul examenelor și materialele de studiu pentru sesiunea Facultății de Teologie Ortodoxă «Sfântul Dumitru Stăniloae», Anul II.",
     images: [{ url: "/og-image.jpg", width: 1536, height: 1152 }],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calendar sesiune — Teologie Ortodoxă, Anul II",
+    title: "Calendar și rezumate sesiune, Anul II",
     description:
       "Calendarul examenelor și materialele de studiu pentru sesiunea Facultății de Teologie Ortodoxă «Sfântul Dumitru Stăniloae», Anul II.",
     images: ["/og-image.jpg"],

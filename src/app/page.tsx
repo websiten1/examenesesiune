@@ -17,12 +17,12 @@ export default function HomePage() {
           background: "linear-gradient(135deg, #5B1E22 0%, #7C2D34 60%, #9B3540 100%)",
         }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto text-center">
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>
             Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae»
           </p>
           <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-1">
-            Calendar și rezumate sesiune — Teologie Ortodoxă
+            Calendar și rezumate sesiune
           </h1>
           <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
             Anul II · Sesiunea iunie 2026
@@ -144,6 +144,9 @@ export default function HomePage() {
       <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
         <p>Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
         <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026 · Andrei Radu</p>
+        <p className="mt-2" style={{ color: "#94a3b8" }}>
+          Platformă pentru uz intern — nu este destinată publicării sau distribuirii publice.
+        </p>
       </footer>
     </div>
   );

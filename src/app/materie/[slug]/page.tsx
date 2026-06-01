@@ -27,11 +27,16 @@ export default async function MateriePage({ params }: Props) {
   if (!exam) notFound();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: "#f8fafc" }}>
       {/* Header */}
-      <header className="bg-[#A43234] text-white py-6 px-4">
+      <header
+        className="text-white py-8 px-4"
+        style={{
+          background: "linear-gradient(135deg, #5B1E22 0%, #7C2D34 60%, #9B3540 100%)",
+        }}
+      >
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs uppercase tracking-widest text-red-200 mb-1">
+          <p className="text-xs uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.5)" }}>
             Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae»
           </p>
           <h1 className="text-xl md:text-2xl font-bold leading-tight">
@@ -40,48 +45,34 @@ export default async function MateriePage({ params }: Props) {
         </div>
       </header>
 
-      <div className="h-1 bg-yellow-800" />
+      <div className="h-1" style={{ background: "linear-gradient(90deg, #059669, #d97706, #7C2D34)" }} />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Navigare înapoi */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#A43234] text-sm font-semibold hover:underline mb-6"
+          className="inline-flex items-center gap-2 text-sm font-semibold mb-7 transition-colors hover:opacity-70"
+          style={{ color: "#7C2D34" }}
         >
-          <span aria-hidden>&#8592;</span> Înapoi la calendar
+          ← Înapoi la calendar
         </Link>
 
         {/* Fișa examenului */}
-        <div className="border border-gray-200 rounded-sm p-5 bg-gray-50 mb-6">
-          <h2 className="text-[#A43234] font-bold text-base uppercase tracking-wide mb-4">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 mb-6 shadow-sm">
+          <h2 className="font-bold text-xs uppercase tracking-widest mb-4" style={{ color: "#7C2D34" }}>
             Informații examen
           </h2>
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            <div>
-              <dt className="text-gray-500 font-medium mb-0.5">Disciplina</dt>
-              <dd className="text-gray-900 font-semibold">{exam.discipline}</dd>
-            </div>
-            <div>
-              <dt className="text-gray-500 font-medium mb-0.5">Cadru didactic</dt>
-              <dd className="text-gray-900">{exam.profesor}</dd>
-            </div>
-            <div>
-              <dt className="text-gray-500 font-medium mb-0.5">Data</dt>
-              <dd className="text-gray-900">{exam.data}</dd>
-            </div>
-            <div>
-              <dt className="text-gray-500 font-medium mb-0.5">Interval orar</dt>
-              <dd className="text-gray-900">{exam.interval}</dd>
-            </div>
-            <div>
-              <dt className="text-gray-500 font-medium mb-0.5">Sala</dt>
-              <dd className="text-gray-900">{exam.sala}</dd>
-            </div>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <InfoRow label="Disciplina" value={exam.discipline} bold />
+            <InfoRow label="Cadru didactic" value={exam.profesor} />
+            <InfoRow label="Data" value={exam.data} />
+            <InfoRow label="Interval orar" value={exam.interval} />
+            <InfoRow label="Sala" value={exam.sala} />
             {exam.isVP && (
               <div>
-                <dt className="text-gray-500 font-medium mb-0.5">Tip evaluare</dt>
+                <dt className="text-xs text-slate-400 font-medium mb-1">Tip evaluare</dt>
                 <dd>
-                  <span className="text-xs font-semibold text-gray-600 border border-gray-400 px-2 py-0.5 rounded-sm uppercase tracking-wide">
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
                     Verificare pe parcurs
                   </span>
                 </dd>
@@ -93,39 +84,54 @@ export default async function MateriePage({ params }: Props) {
         {/* Countdown */}
         <CountdownTimer examStart={exam.examStart} />
 
-        {/* Materia de învățat */}
+        {/* Materia */}
         <section className="mt-10">
-          <h2 className="text-[#A43234] font-bold text-xl border-b border-[#A43234]/30 pb-2 mb-6">
-            Materia de învățat
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
+              Materia de studiu
+            </h2>
+            {exam.materie.length > 0 && (
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">
+                {exam.materie.length} capitole
+              </span>
+            )}
+          </div>
+
           {exam.materie.length > 0 ? (
             <MaterieRenderer blocks={exam.materie} />
           ) : (
-            <p className="text-gray-500 italic text-sm">
-              Materia nu a fost adăugată încă. Editează fișierul{" "}
-              <code className="bg-gray-100 px-1 py-0.5 rounded text-xs">
-                src/data/exams.ts
-              </code>{" "}
-              pentru a adăuga conținut.
+            <p className="text-slate-400 italic text-sm">
+              Materia nu a fost adăugată încă.
             </p>
           )}
         </section>
 
-        {/* Buton înapoi jos */}
-        <div className="mt-12 pt-6 border-t border-gray-200">
+        <div className="mt-12 pt-6 border-t border-slate-200">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[#A43234] text-sm font-semibold hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-70"
+            style={{ color: "#7C2D34" }}
           >
-            <span aria-hidden>&#8592;</span> Înapoi la calendar
+            ← Înapoi la calendar
           </Link>
         </div>
       </main>
 
-      <footer className="mt-auto border-t border-gray-200 py-6 px-4 text-center text-xs text-gray-400">
+      <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
         <p>Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
         <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026</p>
       </footer>
+    </div>
+  );
+}
+
+function InfoRow({ label, value, bold }: { label: string; value: string; bold?: boolean }) {
+  return (
+    <div>
+      <dt className="text-xs text-slate-400 font-medium mb-1">{label}</dt>
+      <dd className={bold ? "text-slate-900 font-semibold" : "text-slate-800"}>
+        {value}
+      </dd>
     </div>
   );
 }

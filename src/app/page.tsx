@@ -9,73 +9,104 @@ export default function HomePage() {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: "#f8fafc" }}>
       {/* Header */}
-      <header className="bg-[#A43234] text-white py-8 px-4">
+      <header
+        className="text-white py-10 px-4"
+        style={{
+          background: "linear-gradient(135deg, #5B1E22 0%, #7C2D34 60%, #9B3540 100%)",
+        }}
+      >
         <div className="max-w-5xl mx-auto">
-          <p className="text-sm uppercase tracking-widest text-red-200 mb-2">
+          <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>
             Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae»
           </p>
-          <h1 className="text-2xl md:text-3xl font-bold leading-tight">
-            Calendar sesiune — Teologie Ortodoxă, Anul II
+          <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-1">
+            Calendar sesiune — Teologie Ortodoxă
           </h1>
+          <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
+            Anul II · Sesiunea iunie 2026
+          </p>
         </div>
       </header>
 
-      <div className="h-1 bg-yellow-800" />
+      <div className="h-1" style={{ background: "linear-gradient(90deg, #059669, #d97706, #7C2D34)" }} />
 
       <main className="max-w-5xl mx-auto px-4 py-10">
-        <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-2xl border-l-4 border-[#A43234] pl-4">
-          Această platformă centralizează examenele și materialele de studiu
-          pentru sesiune. Selectează o disciplină pentru a vedea informațiile
-          examenului și materia de învățat.
+        {/* Intro */}
+        <p
+          className="text-sm leading-relaxed mb-10 max-w-2xl pl-4 py-1"
+          style={{ color: "#64748b", borderLeft: "3px solid #059669" }}
+        >
+          Selectează o disciplină pentru a vedea informațiile examenului, cronometrul
+          rămas și materia de studiu organizată pe capitole.
         </p>
 
-        <section>
-          <h2 className="text-[#A43234] font-bold text-xl mb-4 border-b border-[#A43234]/30 pb-2">
-            Examene — Sesiunea iunie 2026
-          </h2>
+        {/* Examene principale */}
+        <section className="mb-14">
+          <div className="flex items-center gap-3 mb-5">
+            <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
+              Examene scrise
+            </h2>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">
+              {sorted.length} discipline
+            </span>
+          </div>
           <ExamTable exams={sorted} />
         </section>
 
-        <section className="mt-14">
-          <h2 className="text-gray-700 font-bold text-xl mb-2 border-b border-gray-300 pb-2">
-            Discipline cu verificare pe parcurs
-          </h2>
-          <p className="text-sm text-gray-500 mb-5">
-            Disciplinele de mai jos nu au dată, interval orar sau sală indicate în graficul oficial.
+        {/* VP */}
+        <section>
+          <div className="flex items-center gap-3 mb-2">
+            <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
+              Verificare pe parcurs
+            </h2>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+              {vpExams.length} discipline
+            </span>
+          </div>
+          <p className="text-xs text-slate-400 mb-5">
+            Fără dată, interval orar sau sală în graficul oficial.
           </p>
 
           {/* Desktop */}
-          <div className="hidden md:block overflow-x-auto">
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="bg-gray-700 text-white">
-                  <th className="text-left px-4 py-3 font-semibold">Disciplina</th>
-                  <th className="text-left px-4 py-3 font-semibold">Cadru didactic</th>
-                  <th className="text-left px-4 py-3 font-semibold">Tip evaluare</th>
-                  <th className="text-left px-4 py-3 font-semibold"></th>
+                <tr style={{ background: "#1e293b", color: "#fff" }}>
+                  <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                    Disciplina
+                  </th>
+                  <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                    Cadru didactic
+                  </th>
+                  <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                    Tip evaluare
+                  </th>
+                  <th className="px-5 py-3.5" />
                 </tr>
               </thead>
               <tbody>
-                {vpExams.map((exam, idx) => (
+                {vpExams.map((exam) => (
                   <tr
                     key={exam.slug}
-                    className={`border-b border-gray-200 ${idx % 2 === 0 ? "bg-white" : "bg-gray-50"} hover:bg-gray-100 transition-colors`}
+                    className="border-b border-slate-100 bg-white hover:bg-slate-50 transition-colors"
                   >
-                    <td className="px-4 py-3 font-medium text-gray-900">{exam.discipline}</td>
-                    <td className="px-4 py-3 text-gray-700">{exam.profesor}</td>
-                    <td className="px-4 py-3">
-                      <span className="text-xs font-semibold text-gray-600 border border-gray-400 px-2 py-0.5 rounded-sm uppercase tracking-wide">
+                    <td className="px-5 py-3.5 font-semibold text-slate-900">
+                      {exam.discipline}
+                    </td>
+                    <td className="px-5 py-3.5 text-slate-600">{exam.profesor}</td>
+                    <td className="px-5 py-3.5">
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
                         Verificare pe parcurs
                       </span>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-5 py-3.5">
                       <Link
                         href={`/materie/${exam.slug}`}
-                        className="inline-block border border-gray-500 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-sm hover:bg-gray-700 hover:text-white transition-colors uppercase tracking-wide"
+                        className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-colors inline-block"
                       >
-                        Vezi materia
+                        Vezi materia →
                       </Link>
                     </td>
                   </tr>
@@ -87,18 +118,21 @@ export default function HomePage() {
           {/* Mobil */}
           <div className="md:hidden space-y-3">
             {vpExams.map((exam) => (
-              <div key={exam.slug} className="border border-gray-200 rounded-sm bg-white p-4 shadow-sm">
-                <h3 className="font-semibold text-gray-900">{exam.discipline}</h3>
-                <p className="text-sm text-gray-600 mt-1">{exam.profesor}</p>
-                <span className="mt-2 inline-block text-xs font-semibold text-gray-600 border border-gray-400 px-2 py-0.5 rounded-sm uppercase tracking-wide">
+              <div
+                key={exam.slug}
+                className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <h3 className="font-semibold text-slate-900">{exam.discipline}</h3>
+                <p className="text-sm text-slate-500 mt-1 mb-2">{exam.profesor}</p>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 inline-block mb-3">
                   Verificare pe parcurs
                 </span>
-                <div className="mt-3">
+                <div>
                   <Link
                     href={`/materie/${exam.slug}`}
-                    className="inline-block border border-gray-500 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-sm hover:bg-gray-700 hover:text-white transition-colors uppercase tracking-wide"
+                    className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 inline-block"
                   >
-                    Vezi materia
+                    Vezi materia →
                   </Link>
                 </div>
               </div>
@@ -107,7 +141,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="mt-auto border-t border-gray-200 py-6 px-4 text-center text-xs text-gray-400">
+      <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
         <p>Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
         <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026</p>
       </footer>

@@ -8,44 +8,54 @@ type Props = {
 export default function ExamTable({ exams }: Props) {
   return (
     <>
-      {/* Tabel — vizibil pe desktop */}
-      <div className="hidden md:block overflow-x-auto">
+      {/* Tabel — desktop */}
+      <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
         <table className="w-full border-collapse text-sm">
           <thead>
-            <tr className="bg-[#A43234] text-white">
-              <th className="text-left px-4 py-3 font-semibold">Disciplina</th>
-              <th className="text-left px-4 py-3 font-semibold">Cadru didactic</th>
-              <th className="text-left px-4 py-3 font-semibold">Data</th>
-              <th className="text-left px-4 py-3 font-semibold">Interval orar</th>
-              <th className="text-left px-4 py-3 font-semibold">Sala</th>
-              <th className="text-left px-4 py-3 font-semibold"></th>
+            <tr style={{ background: "#0f172a", color: "#fff" }}>
+              <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                Disciplina
+              </th>
+              <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                Cadru didactic
+              </th>
+              <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                Data
+              </th>
+              <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                Interval
+              </th>
+              <th className="text-left px-5 py-3.5 font-semibold text-slate-300 text-xs uppercase tracking-wider">
+                Sala
+              </th>
+              <th className="px-5 py-3.5" />
             </tr>
           </thead>
           <tbody>
             {exams.map((exam, idx) => (
               <tr
                 key={exam.slug}
-                className={`border-b border-gray-200 ${
-                  idx % 2 === 0 ? "bg-white" : "bg-gray-50"
-                } hover:bg-red-50 transition-colors`}
+                className="border-b border-slate-100 bg-white hover:bg-emerald-50 transition-colors"
               >
-                <td className="px-4 py-3 font-medium text-gray-900">
+                <td className="px-5 py-3.5 font-semibold text-slate-900">
                   {exam.discipline}
                 </td>
-                <td className="px-4 py-3 text-gray-700">{exam.profesor}</td>
-                <td className="px-4 py-3 text-gray-700 whitespace-nowrap">
-                  {exam.data}
+                <td className="px-5 py-3.5 text-slate-600">{exam.profesor}</td>
+                <td className="px-5 py-3.5 whitespace-nowrap">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full text-white" style={{ background: "#7C2D34" }}>
+                    {exam.data}
+                  </span>
                 </td>
-                <td className="px-4 py-3 text-gray-700 whitespace-nowrap">
+                <td className="px-5 py-3.5 text-slate-600 whitespace-nowrap">
                   {exam.interval}
                 </td>
-                <td className="px-4 py-3 text-gray-700">{exam.sala}</td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3.5 text-slate-600">{exam.sala}</td>
+                <td className="px-5 py-3.5">
                   <Link
                     href={`/materie/${exam.slug}`}
-                    className="inline-block border border-[#A43234] text-[#A43234] text-xs font-semibold px-3 py-1.5 rounded-sm hover:bg-[#A43234] hover:text-white transition-colors uppercase tracking-wide"
+                    className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
                   >
-                    Vezi materia
+                    Vezi materia →
                   </Link>
                 </td>
               </tr>
@@ -54,38 +64,40 @@ export default function ExamTable({ exams }: Props) {
         </table>
       </div>
 
-      {/* Carduri — vizibile pe mobil */}
-      <div className="md:hidden space-y-4">
+      {/* Carduri — mobil */}
+      <div className="md:hidden space-y-3">
         {exams.map((exam) => (
           <div
             key={exam.slug}
-            className="border border-gray-200 rounded-sm bg-white p-4 shadow-sm"
+            className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
           >
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="font-semibold text-gray-900 text-base leading-snug">
+            <div className="flex items-start justify-between gap-3 mb-1">
+              <h3 className="font-semibold text-slate-900 text-base leading-snug">
                 {exam.discipline}
               </h3>
-              <span className="text-xs font-bold text-[#A43234] whitespace-nowrap border border-[#A43234] px-2 py-0.5 rounded-sm">
+              <span
+                className="text-xs font-bold px-2.5 py-1 rounded-full text-white whitespace-nowrap shrink-0"
+                style={{ background: "#7C2D34" }}
+              >
                 {exam.data}
               </span>
             </div>
-            <p className="text-sm text-gray-600 mt-1">{exam.profesor}</p>
-            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700">
+            <p className="text-sm text-slate-500 mb-2">{exam.profesor}</p>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600 mb-3">
               <span>
-                <span className="font-medium">Orar:</span> {exam.interval}
+                <span className="font-semibold">Orar:</span> {exam.interval}
               </span>
               <span>
-                <span className="font-medium">Sala:</span> {exam.sala}
+                <span className="font-semibold">Sala:</span> {exam.sala}
               </span>
             </div>
-            <div className="mt-3">
-              <Link
-                href={`/materie/${exam.slug}`}
-                className="inline-block border border-[#A43234] text-[#A43234] text-xs font-semibold px-3 py-1.5 rounded-sm hover:bg-[#A43234] hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Vezi materia
-              </Link>
-            </div>
+            <Link
+              href={`/materie/${exam.slug}`}
+              className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-colors"
+              style={{ color: "#059669", borderColor: "#059669" }}
+            >
+              Vezi materia →
+            </Link>
           </div>
         ))}
       </div>

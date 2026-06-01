@@ -725,41 +725,8 @@ export const exams: Exam[] = [
     isVP: false,
     materie: [
       {
-        type: "chapter",
-        title: "Capitolul I — Introducere în aghiografie",
-        children: [
-          {
-            type: "definition",
-            term: "Aghiografie",
-            text: "Disciplina teologică care studiază viețile sfinților, actele martirice și cultul sfinților în Biserică.",
-          },
-          {
-            type: "key-idea",
-            text: "Sfântul este modelul desăvârșirii creștine, omul transfigurat de harul divin.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Categorii de sfinți",
-        children: [
-          {
-            type: "key-idea",
-            text: "Martiri, mărturisitori, apostoli, ierahi, cuvioși, mucenici — fiecare categorie reflectă un mod specific de sfințenie.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Ce este aghiografia și care este obiectul ei de studiu?",
-          "Enumerați principalele categorii de sfinți din calendarul ortodox.",
-          "Care este importanța cultului sfinților în viața Bisericii?",
-        ],
-      },
-      {
         type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
+        text: "Acest examen a fost susținut deja în presesiue.",
       },
     ],
   },
@@ -774,8 +741,26 @@ export const exams: Exam[] = [
     isVP: false,
     materie: [
       {
+        type: "paragraph",
+        text: "Pentru examenul de exegeză, fiecare student va alege un singur text biblic dintre următoarele variante:",
+      },
+      { type: "key-idea", text: "II Regi 7, 18–29" },
+      { type: "key-idea", text: "Psalm 140" },
+      { type: "key-idea", text: "Iona 2, 3–10" },
+      { type: "key-idea", text: "Matei 25, 1–13" },
+      { type: "key-idea", text: "Luca 15, 11–32" },
+      { type: "key-idea", text: "I Corinteni 13" },
+      {
         type: "observation",
-        text: "Fiecare student alege un singur text biblic dintre: II Regi 7:18-29, Psalm 140, Iona 2:3-10, Matei 25:1-13, Luca 15:11-32, I Corinteni 13. Lucrarea se redactează de mână, pe foaie, maximum două pagini. Se predă în intervalul orar selectat pentru examen.",
+        text: "Textul ales trebuie analizat și interpretat din perspectivă exegetică. Lucrarea va fi realizată înainte de examen, nu în timpul acestuia.",
+      },
+      {
+        type: "observation",
+        text: "Lucrarea trebuie redactată de mână, pe foaie, având o lungime de maximum două pagini. Limita este de două pagini, nu două foi.",
+      },
+      {
+        type: "observation",
+        text: "Lucrarea scrisă de mână va fi adusă și predată în intervalul orar selectat pentru examen.",
       },
     ],
   },
@@ -974,18 +959,8 @@ export const exams: Exam[] = [
     isVP: true,
     materie: [
       {
-        type: "chapter",
-        title: "Gramatică latină — noțiuni esențiale",
-        children: [
-          {
-            type: "key-idea",
-            text: "Declinările substantivelor, conjugările verbale și sintaxa propoziției latine.",
-          },
-        ],
-      },
-      {
         type: "observation",
-        text: "Disciplina este marcată ca verificare pe parcurs (VP). Adaugă materia conform indicațiilor cadrului didactic.",
+        text: "Această disciplină a fost verificată și evaluată în timpul semestrului.",
       },
     ],
   },
@@ -1001,7 +976,7 @@ export const exams: Exam[] = [
     materie: [
       {
         type: "observation",
-        text: "Disciplina este marcată ca verificare pe parcurs (VP). Adaugă materia conform indicațiilor cadrului didactic.",
+        text: "Această disciplină a fost verificată și evaluată în timpul semestrului.",
       },
     ],
   },
@@ -1017,7 +992,7 @@ export const exams: Exam[] = [
     materie: [
       {
         type: "observation",
-        text: "Disciplina este marcată ca verificare pe parcurs (VP). Adaugă materia conform indicațiilor cadrului didactic.",
+        text: "Această disciplină a fost verificată și evaluată în timpul semestrului.",
       },
     ],
   },
@@ -1033,7 +1008,7 @@ export const exams: Exam[] = [
     materie: [
       {
         type: "observation",
-        text: "Disciplina este marcată ca verificare pe parcurs (VP). Adaugă materia conform indicațiilor cadrului didactic.",
+        text: "Această disciplină a fost verificată și evaluată în timpul semestrului.",
       },
     ],
   },

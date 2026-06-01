@@ -19,10 +19,10 @@ export default function HomePage() {
       >
         <div className="max-w-5xl mx-auto">
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>
-            Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae»
+            Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae»
           </p>
           <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-1">
-            Calendar sesiune — Teologie Ortodoxă
+            Calendar și rezumate sesiune — Teologie Ortodoxă
           </h1>
           <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
             Anul II · Sesiunea iunie 2026
@@ -104,7 +104,7 @@ export default function HomePage() {
                     <td className="px-5 py-3.5">
                       <Link
                         href={`/materie/${exam.slug}`}
-                        className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-colors inline-block"
+                        className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-colors inline-block whitespace-nowrap"
                       >
                         Vezi materia →
                       </Link>
@@ -130,7 +130,7 @@ export default function HomePage() {
                 <div>
                   <Link
                     href={`/materie/${exam.slug}`}
-                    className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 inline-block"
+                    className="text-xs font-semibold px-3.5 py-1.5 rounded-full border border-slate-400 text-slate-600 inline-block whitespace-nowrap"
                   >
                     Vezi materia →
                   </Link>
@@ -142,7 +142,7 @@ export default function HomePage() {
       </main>
 
       <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
-        <p>Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
+        <p>Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
         <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026</p>
       </footer>
     </div>

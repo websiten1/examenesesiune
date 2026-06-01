@@ -53,7 +53,7 @@ export default function ExamTable({ exams }: Props) {
                 <td className="px-5 py-3.5">
                   <Link
                     href={`/materie/${exam.slug}`}
-                    className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
+                    className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors whitespace-nowrap"
                   >
                     Vezi materia →
                   </Link>
@@ -93,7 +93,7 @@ export default function ExamTable({ exams }: Props) {
             </div>
             <Link
               href={`/materie/${exam.slug}`}
-              className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-colors"
+              className="inline-block text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-colors whitespace-nowrap"
               style={{ color: "#059669", borderColor: "#059669" }}
             >
               Vezi materia →

@@ -90,7 +90,7 @@ export default function CountdownTimer({ examStart }: Props) {
       style={{ background: "#0f172a" }}
     >
       <p className="text-slate-400 text-xs uppercase tracking-widest mb-5 flex items-center gap-2">
-        <span>⏱</span> Timp rămas până la examen
+        Timp rămas până la examen
       </p>
 
       {timeLeft.started ? (

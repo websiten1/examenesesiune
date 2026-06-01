@@ -133,7 +133,6 @@ function ContentItem({ block }: { block: ContentBlock }) {
             borderLeft: "4px solid #059669",
           }}
         >
-          <span className="text-emerald-500 shrink-0 mt-0.5 text-xs">✦</span>
           <p className="text-slate-700 text-sm leading-relaxed">{block.text}</p>
         </div>
       );
@@ -189,7 +188,7 @@ function ContentItem({ block }: { block: ContentBlock }) {
             className="font-semibold text-xs uppercase tracking-widest mb-3 flex items-center gap-1.5"
             style={{ color: "#7C2D34" }}
           >
-            <span>⊕</span> Întrebări posibile de examen
+            Intrebari posibile de examen
           </h4>
           <ol className="space-y-2">
             {block.questions.map((q, i) => (
@@ -216,7 +215,6 @@ function ContentItem({ block }: { block: ContentBlock }) {
             borderLeft: "4px solid #60a5fa",
           }}
         >
-          <span className="text-blue-400 shrink-0 mt-0.5 text-xs">ℹ</span>
           <p className="text-slate-700 text-sm leading-relaxed italic">
             {block.text}
           </p>

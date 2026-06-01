@@ -5,7 +5,7 @@ import type { Exam } from "@/data/exams";
 import MaterieRenderer from "./MaterieRenderer";
 import TestQuiz from "./TestQuiz";
 
-type Tab = "sos" | "materia" | "complet" | "test";
+type Tab = "tabel" | "rezumat" | "complet" | "test";
 
 type Props = {
   exam: Exam;
@@ -14,15 +14,15 @@ type Props = {
 export default function MateriePageContent({ exam }: Props) {
   const hasComplet = !!(exam.materieComplet && exam.materieComplet.length > 0);
   const hasTest = !!(exam.test && exam.test.length > 0);
-  const hasRezumat = !!(exam.rezumat && exam.rezumat.length > 0);
+  const hasTabel = !!(exam.rezumat && exam.rezumat.length > 0);
 
-  const [tab, setTab] = useState<Tab>("materia");
+  const [tab, setTab] = useState<Tab>("rezumat");
 
-  const tabs: { id: Tab; label: string; emoji: string; available: boolean }[] = [
-    { id: "sos", label: "SOS Sesiune", emoji: "🆘", available: hasRezumat },
-    { id: "materia", label: "Materia", emoji: "📚", available: true },
-    { id: "complet", label: "Cursul Complet", emoji: "📖", available: hasComplet },
-    { id: "test", label: "Test", emoji: "✎", available: hasTest },
+  const tabs: { id: Tab; label: string; available: boolean }[] = [
+    { id: "tabel", label: "Tabel conceptual", available: hasTabel },
+    { id: "rezumat", label: "Rezumat", available: true },
+    { id: "complet", label: "Cursul complet", available: hasComplet },
+    { id: "test", label: "Test", available: hasTest },
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function MateriePageContent({ exam }: Props) {
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+              className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
               style={
                 tab === t.id
                   ? { background: "#7C2D34", color: "#fff" }
@@ -46,15 +46,37 @@ export default function MateriePageContent({ exam }: Props) {
                     }
               }
             >
-              <span>{t.emoji}</span>
-              <span>{t.label}</span>
+              {t.label}
             </button>
           ))}
       </div>
 
       {/* Content */}
-      {tab === "sos" && exam.rezumat && <SOSView rezumat={exam.rezumat} />}
-      {tab === "materia" && <MaterieRenderer blocks={exam.materie} />}
+      {tab === "tabel" && exam.rezumat && <TabelView rezumat={exam.rezumat} />}
+      {tab === "rezumat" && (
+        <>
+          <div
+            className="rounded-xl px-5 py-4 mb-6 text-sm"
+            style={{
+              background: "#f0fdf4",
+              borderLeft: "4px solid #059669",
+              color: "#374151",
+            }}
+          >
+            Acesta este un rezumat al materiei. Dacă vrei să vezi materia mai
+            completă, accesează{" "}
+            <button
+              onClick={() => setTab("complet")}
+              className="font-semibold underline underline-offset-2"
+              style={{ color: "#7C2D34" }}
+            >
+              Cursul complet
+            </button>
+            .
+          </div>
+          <MaterieRenderer blocks={exam.materie} />
+        </>
+      )}
       {tab === "complet" && exam.materieComplet && (
         <CompletView blocks={exam.materieComplet} />
       )}
@@ -63,7 +85,7 @@ export default function MateriePageContent({ exam }: Props) {
   );
 }
 
-// ─── SOS View ────────────────────────────────────────────────────────────────
+// ─── Tabel conceptual ────────────────────────────────────────────────────────
 import type { RezumatBlock } from "@/data/exams";
 
 const cursColors = [
@@ -72,24 +94,21 @@ const cursColors = [
   "#d97706",
   "#6366f1",
   "#0891b2",
-  "#dc2626",
+  "#be185d",
 ];
 
-function SOSView({ rezumat }: { rezumat: RezumatBlock[] }) {
+function TabelView({ rezumat }: { rezumat: RezumatBlock[] }) {
   return (
     <div>
-      {/* Header comic */}
       <div
-        className="rounded-2xl p-6 mb-6 text-white"
+        className="rounded-xl px-5 py-4 mb-6 text-sm"
         style={{
-          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+          background: "#0f172a",
+          color: "#94a3b8",
         }}
       >
-        <p className="text-4xl mb-2">😱</p>
-        <h2 className="text-xl font-bold mb-1">M-am apucat prea târziu!</h2>
-        <p className="text-slate-400 text-sm">
-          Versiunea pentru oameni disperați. Baftă la examen 🕯️
-        </p>
+        <p className="font-semibold text-white mb-0.5">Tabel conceptual</p>
+        <p>Punctele esențiale ale fiecărui curs, organizate pe teme.</p>
       </div>
 
       <div className="space-y-4">
@@ -99,12 +118,11 @@ function SOSView({ rezumat }: { rezumat: RezumatBlock[] }) {
             className="rounded-2xl border overflow-hidden shadow-sm"
             style={{ borderColor: `${cursColors[i % cursColors.length]}30` }}
           >
-            {/* Curs header */}
             <div
               className="px-5 py-3 flex items-center gap-2"
               style={{
-                background: `${cursColors[i % cursColors.length]}12`,
-                borderBottom: `2px solid ${cursColors[i % cursColors.length]}30`,
+                background: `${cursColors[i % cursColors.length]}10`,
+                borderBottom: `2px solid ${cursColors[i % cursColors.length]}25`,
               }}
             >
               <span
@@ -121,7 +139,6 @@ function SOSView({ rezumat }: { rezumat: RezumatBlock[] }) {
               </h3>
             </div>
 
-            {/* Bullet points */}
             <ul className="bg-white divide-y divide-slate-50">
               {bloc.puncte.map((punct, j) => (
                 <li key={j} className="flex gap-3 px-5 py-3 text-sm text-slate-700">
@@ -138,13 +155,13 @@ function SOSView({ rezumat }: { rezumat: RezumatBlock[] }) {
       </div>
 
       <p className="text-center text-slate-400 text-xs mt-6 italic">
-        Dacă tot ce ai citit mai sus sună ca chineză... deschide tab-ul 📚.
+        Pentru detalii complete, accesează secțiunea Cursul complet.
       </p>
     </div>
   );
 }
 
-// ─── Cursul Complet (full paragraphs, no accordion) ──────────────────────────
+// ─── Cursul Complet ──────────────────────────────────────────────────────────
 import type { ContentBlock } from "@/data/exams";
 
 function CompletView({ blocks }: { blocks: ContentBlock[] }) {
@@ -157,18 +174,11 @@ function CompletView({ blocks }: { blocks: ContentBlock[] }) {
   );
 }
 
-function CompletChapter({
-  block,
-  index,
-}: {
-  block: ContentBlock;
-  index: number;
-}) {
+function CompletChapter({ block, index }: { block: ContentBlock; index: number }) {
   if (block.type !== "chapter") return <CompletBlock block={block} />;
 
   return (
     <div>
-      {/* Chapter heading */}
       <div className="flex items-center gap-3 mb-6">
         <span
           className="flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold shrink-0"
@@ -213,17 +223,14 @@ function CompletSubchapter({ block }: { block: ContentBlock }) {
 function CompletBlock({ block }: { block: ContentBlock }) {
   switch (block.type) {
     case "paragraph":
-      return (
-        <p className="text-slate-700 text-sm leading-loose">{block.text}</p>
-      );
+      return <p className="text-slate-700 text-sm leading-loose">{block.text}</p>;
 
     case "key-idea":
       return (
         <div
-          className="flex gap-2 items-start py-2.5 px-4 rounded-r-xl"
+          className="py-2.5 px-4 rounded-r-xl"
           style={{ background: "#f0fdf4", borderLeft: "4px solid #059669" }}
         >
-          <span className="text-emerald-500 shrink-0 mt-0.5 text-xs">✦</span>
           <p className="text-slate-700 text-sm leading-relaxed">{block.text}</p>
         </div>
       );
@@ -249,13 +256,9 @@ function CompletBlock({ block }: { block: ContentBlock }) {
           className="pl-4 py-2.5 rounded-r-xl"
           style={{ background: "#f8fafc", borderLeft: "4px solid #94a3b8" }}
         >
-          <p className="text-slate-600 italic text-sm leading-relaxed">
-            {block.text}
-          </p>
+          <p className="text-slate-600 italic text-sm leading-relaxed">{block.text}</p>
           {block.source && (
-            <footer className="mt-1 text-xs text-slate-400">
-              — {block.source}
-            </footer>
+            <footer className="mt-1 text-xs text-slate-400">— {block.source}</footer>
           )}
         </blockquote>
       );
@@ -273,15 +276,12 @@ function CompletBlock({ block }: { block: ContentBlock }) {
             className="font-semibold text-xs uppercase tracking-widest mb-3"
             style={{ color: "#7C2D34" }}
           >
-            ⊕ Întrebări posibile
+            Intrebari posibile
           </h4>
           <ol className="space-y-2">
             {block.questions.map((q, i) => (
               <li key={i} className="flex gap-3 text-sm text-slate-700">
-                <span
-                  className="font-bold shrink-0 tabular-nums"
-                  style={{ color: "#7C2D34" }}
-                >
+                <span className="font-bold shrink-0 tabular-nums" style={{ color: "#7C2D34" }}>
                   {i + 1}.
                 </span>
                 <span>{q}</span>
@@ -294,13 +294,10 @@ function CompletBlock({ block }: { block: ContentBlock }) {
     case "observation":
       return (
         <div
-          className="flex gap-2 items-start py-2.5 px-4 rounded-r-xl"
+          className="py-2.5 px-4 rounded-r-xl"
           style={{ background: "#eff6ff", borderLeft: "4px solid #60a5fa" }}
         >
-          <span className="text-blue-400 shrink-0 mt-0.5 text-xs">ℹ</span>
-          <p className="text-slate-700 text-sm leading-relaxed italic">
-            {block.text}
-          </p>
+          <p className="text-slate-700 text-sm leading-relaxed italic">{block.text}</p>
         </div>
       );
 

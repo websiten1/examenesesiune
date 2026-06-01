@@ -49,12 +49,12 @@ export default function TestQuiz({ questions }: Props) {
   if (finished) {
     const grade =
       pct >= 90
-        ? { label: "Excelent! Ești pregătit(ă)! 🎓", color: "#059669" }
+        ? { label: "Excelent! Esti pregatit(a).", color: "#059669" }
         : pct >= 70
-        ? { label: "Bine! Revizuiește ce-ai greșit.", color: "#d97706" }
+        ? { label: "Bine! Revizuieste ce-ai gresit.", color: "#d97706" }
         : pct >= 50
-        ? { label: "Mediu. Mai ai de muncă 📚", color: "#ea580c" }
-        : { label: "Ehh... te-ai apucat prea târziu 😬", color: "#7C2D34" };
+        ? { label: "Mediu. Mai ai de munca.", color: "#ea580c" }
+        : { label: "Sub 50%. Recomandare: Cursul complet.", color: "#7C2D34" };
 
     return (
       <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">

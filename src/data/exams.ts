@@ -5,6 +5,8 @@ import {
   bizantTest,
   bizantMaterieComplet,
 } from "./bizant-extra";
+import { ibuTest } from "./ibu-extra";
+import { iborRezumat, iborMaterieComplet, iborTest } from "./ibor-extra";
 
 export type { RezumatBlock, TestQuestion } from "./bizant-extra";
 
@@ -949,46 +951,15 @@ export const exams: Exam[] = [
     data: "15 și 16.06.2026",
     interval: "08:30–20:00",
     sala: "S2",
-    // Countdown starts de la prima zi
     examStart: { date: "2026-06-15", time: "08:30", timezone: "Europe/Bucharest" },
     isVP: false,
+    rezumat: iborRezumat,
+    materieComplet: iborMaterieComplet,
+    test: iborTest,
     materie: [
-      {
-        type: "chapter",
-        title: "Capitolul I — Începuturile creștinismului pe teritoriul României",
-        children: [
-          {
-            type: "key-idea",
-            text: "Creștinismul a pătruns în Dacia și Dobrogea în primele secole, prin misionari și prin comerț.",
-          },
-          {
-            type: "definition",
-            term: "Scythia Minor",
-            text: "Provincie romană corespunzătoare actualei Dobroge, leagăn al creștinismului românesc.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Organizarea Bisericii Ortodoxe Române",
-        children: [
-          {
-            type: "key-idea",
-            text: "Mitropolia Ungrovlahiei (1359) și Mitropolia Moldovei (1401) reprezintă primele structuri bisericești oficiale.",
-          },
-        ],
-      },
       {
         type: "observation",
         text: "Examenul se desfășoară pe parcursul a două zile (15 și 16.06.2026), 08:30–20:00. Countdown-ul numără până la prima zi.",
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Care sunt sursele istorice privind creștinarea românilor?",
-          "Prezentați organizarea bisericească medievală a Țărilor Române.",
-          "Care este rolul Bisericii Ortodoxe Române în istoria națională?",
-        ],
       },
     ],
   },
@@ -1050,6 +1021,7 @@ export const exams: Exam[] = [
     sala: "Iustin Moisescu",
     examStart: { date: "2026-06-19", time: "10:00", timezone: "Europe/Bucharest" },
     isVP: false,
+    test: ibuTest,
     materie: [
       {
         type: "chapter",

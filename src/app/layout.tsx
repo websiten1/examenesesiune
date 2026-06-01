@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://examenesesiune.vercel.app"),
   title: "Calendar sesiune — Teologie Ortodoxă, Anul II",
   description:
     "Calendarul examenelor și materialele de studiu pentru sesiunea Facultății de Teologie Ortodoxă «Sfântul Dumitru Stăniloae», Anul II.",

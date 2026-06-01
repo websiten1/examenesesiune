@@ -959,7 +959,44 @@ export const exams: Exam[] = [
     materie: [
       {
         type: "observation",
-        text: "Examenul se desfășoară pe parcursul a două zile (15 și 16.06.2026), 08:30–20:00. Countdown-ul numără până la prima zi.",
+        text: "Examenul se desfășoară pe 15 și 16.06.2026, 08:30–20:00. Materia completă este disponibilă în tab-urile de mai jos.",
+      },
+      {
+        type: "chapter",
+        title: "Ierarhii secolului XIX (1803–1885)",
+        children: [
+          { type: "key-idea", text: "Veniamin Costachi (1803–1842) — 'luminătorul Moldovei', fondator Seminar Socola (1803), traducător NT 1817." },
+          { type: "key-idea", text: "Grigorie Dascălul (1823–1834) — ucenic Sf. Paisie, traducător Filocalie, canonizat de BOR." },
+          { type: "key-idea", text: "Chesarie al Buzăului (1825–1846) — fondator școli de psaltichie și pictură, tipografie Buzău." },
+          { type: "key-idea", text: "Sf. Calinic al Râmnicului (1850–1868) — monah la Cernica, canonizat 1955, tipografii liturgice." },
+          { type: "key-idea", text: "Dionisie Romano al Buzăului (1859–1864) — fondator 'Vestitorul Bisericesc', primul ziar bisericesc românesc." },
+          { type: "key-idea", text: "Andrei Șaguna (1864–1873) — restauratorul Mitropoliei Ardealului, Statut Organic 1868, 'Telegraful Român'." },
+        ],
+      },
+      {
+        type: "chapter",
+        title: "Reforme și Autocefalie (1831–1885)",
+        children: [
+          { type: "key-idea", text: "Regulamentele Organice (1831/1832) — control statal asupra numirii clerului, tribunal civil, registre parohiale." },
+          { type: "key-idea", text: "Cuza: secularizarea averilor mănăstirești (1863), Legea Sinodului Organic (1864), școli laice." },
+          { type: "key-idea", text: "Autocefalia recunoscută 25 aprilie 1885 — Tomos semnat de Patriarhul Ioachim IV al Constantinopolului." },
+          { type: "key-idea", text: "Melchisedec Ștefănescu (1879–1892) — manuale teologice, cronici istorice, membru Academia Română." },
+          { type: "key-idea", text: "Iosif Naniescu (1875–1902) — Catedrala Mitropolitană Iași, cor mixt, revistă teologică." },
+        ],
+      },
+      {
+        type: "chapter",
+        title: "Patriarhia Română (1918–2007)",
+        children: [
+          { type: "key-idea", text: "1918 — Marea Unire; Legea BOR 1925 unifică structurile; Concordat cu Vaticanul 1929." },
+          { type: "key-idea", text: "Miron Cristea (1925–1939) — primul Patriarh al României, regent, prim-ministru, născut în Toplița." },
+          { type: "key-idea", text: "Nicodim Munteanu (1939–1948) — traducătorul Bibliei 1944, studii la Kiev." },
+          { type: "key-idea", text: "Irineu Mihalcescu (1939–1947) — 540+ lucrări publicate, Teologia dogmatică și simbolică." },
+          { type: "key-idea", text: "Nicolae Bălan (1920–1955) — restaurator Sâmbăta de Sus, apărător BOR în Senat contra Concordat." },
+          { type: "key-idea", text: "Justinian Marina (1948–1977) — apostolat social, reintegrarea greco-catolicilor (1948), Statut 1948." },
+          { type: "key-idea", text: "Justin Moisescu (1977–1986) — inițiator colecție PSB (Părinți și Scriitori Bisericești), doctorat Atena/Strasbourg." },
+          { type: "key-idea", text: "Teoctist Arăpașu (1986–2007) — 57 de ani de episcopat, canonizarea sfinților 1992, vizita Ioan Paul II 1999." },
+        ],
       },
     ],
   },

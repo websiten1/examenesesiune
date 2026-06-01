@@ -16,7 +16,7 @@ export default function MateriePageContent({ exam }: Props) {
   const hasTest = !!(exam.test && exam.test.length > 0);
   const hasTabel = !!(exam.rezumat && exam.rezumat.length > 0);
 
-  const [tab, setTab] = useState<Tab>("rezumat");
+  const [tab, setTab] = useState<Tab>(hasTabel ? "tabel" : "rezumat");
 
   const tabs: { id: Tab; label: string; available: boolean }[] = [
     { id: "tabel", label: "Tabel conceptual", available: hasTabel },

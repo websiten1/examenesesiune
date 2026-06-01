@@ -6,7 +6,8 @@ import {
   bizantMaterieComplet,
 } from "./bizant-extra";
 import { ibuTest } from "./ibu-extra";
-import { iborRezumat, iborMaterieComplet, iborTest } from "./ibor-extra";
+import { iborMaterieComplet, iborTest } from "./ibor-extra";
+import { vtRezumat, vtMaterieComplet, vtTest } from "./vt-extra";
 
 export type { RezumatBlock, TestQuestion } from "./bizant-extra";
 
@@ -808,41 +809,8 @@ export const exams: Exam[] = [
     isVP: false,
     materie: [
       {
-        type: "chapter",
-        title: "Capitolul I — Principii de hermeneutică biblică",
-        children: [
-          {
-            type: "definition",
-            term: "Exegeză",
-            text: "Interpretarea riguroasă a textelor biblice prin metode filologice, istorice și teologice.",
-          },
-          {
-            type: "key-idea",
-            text: "Sensul literal și sensul spiritual al Scripturii se completează reciproc în tradiția patristică.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Metode exegetice",
-        children: [
-          {
-            type: "key-idea",
-            text: "Metoda istorico-critică, analiza literară și lectura patristică sunt instrumentele principale ale exegezei.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Care sunt principalele metode de exegeză biblică?",
-          "Explicați relația dintre sensul literal și sensul spiritual al Scripturii.",
-          "Cum interpretează Sfinții Părinți un text biblic?",
-        ],
-      },
-      {
         type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
+        text: "Fiecare student alege un singur text biblic dintre: II Regi 7:18-29, Psalm 140, Iona 2:3-10, Matei 25:1-13, Luca 15:11-32, I Corinteni 13. Lucrarea se redactează de mână, pe foaie, maximum două pagini. Se predă în intervalul orar selectat pentru examen.",
       },
     ],
   },
@@ -855,43 +823,13 @@ export const exams: Exam[] = [
     sala: "Iustin Moisescu",
     examStart: { date: "2026-06-10", time: "13:00", timezone: "Europe/Bucharest" },
     isVP: false,
+    rezumat: vtRezumat,
+    materieComplet: vtMaterieComplet,
+    test: vtTest,
     materie: [
       {
-        type: "chapter",
-        title: "Capitolul I — Introducere în Vechiul Testament",
-        children: [
-          {
-            type: "definition",
-            term: "Canon",
-            text: "Lista cărților recunoscute de Biserică ca inspirate și normative pentru credință și viață.",
-          },
-          {
-            type: "key-idea",
-            text: "Vechiul Testament cuprinde 39 de cărți protocanonice și 14 deuterocanonice, conform tradiției ortodoxe.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Teologia Vechiului Testament",
-        children: [
-          {
-            type: "key-idea",
-            text: "Revelația progresivă a lui Dumnezeu în Vechiul Testament atinge împlinirea în Iisus Hristos.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Prezentați canonul Vechiului Testament în tradiția ortodoxă.",
-          "Care sunt temele teologice centrale ale Pentateuhului?",
-          "Cum este prezentată mesia în cărțile profetice?",
-        ],
-      },
-      {
         type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
+        text: "Materia acoperă cei 12 profeți mici: Osea, Ioel, Amos, Avdie, Iona, Miheia, Naum, Avacum, Sofonie, Agheu, Zaharia, Maleahi. Folosește Tabelul conceptual și Cursul complet pentru detalii.",
       },
     ],
   },
@@ -953,7 +891,6 @@ export const exams: Exam[] = [
     sala: "S2",
     examStart: { date: "2026-06-15", time: "08:30", timezone: "Europe/Bucharest" },
     isVP: false,
-    rezumat: iborRezumat,
     materieComplet: iborMaterieComplet,
     test: iborTest,
     materie: [
@@ -1062,45 +999,66 @@ export const exams: Exam[] = [
     materie: [
       {
         type: "chapter",
-        title: "Capitolul I — Istoria Bisericii în primele trei secole",
+        title: "Biserica Ortodoxă sub Imperiul Otoman",
         children: [
-          {
-            type: "key-idea",
-            text: "Persecuțiile romane, martiriul și apologetica au definit identitatea Bisericii primare.",
-          },
-          {
-            type: "definition",
-            term: "Ecumenic",
-            text: "Termen care desemnează un conciliu general al întregii Biserici, recunoscut ca normativ pentru credință.",
-          },
+          { type: "key-idea", text: "Dhimmi — statut juridic al creștinilor: plăteau haraci (jizia), nu puteau face prozelitism, nu puteau călări în public și purtau haine modeste." },
+          { type: "key-idea", text: "Patriarhia Ecumenică a absorbit sub autoritate directă celelalte patriarhii răsăritene și Bisericile balcanice." },
+          { type: "key-idea", text: "Fanarioții — ierarhii și aristocrații greci din cartierul Fanar (Istanbul) care controlau Patriarhia și ocupau funcții înalte în Imperiul Otoman." },
+          { type: "key-idea", text: "Patriarhatul sârb de Pec: desființat 1458, reînființat 1557 de vizirul Mehmed Sokollu (rudă cu Patriarhul Macariu), desființat definitiv 1766." },
+          { type: "key-idea", text: "Patriarhatul bulgar de Tărnovo desființat 1393. Arhiepiscopia de Ohrida desființată definitiv 1767." },
+          { type: "key-idea", text: "Limba greacă a devenit dominantă în administrația Bisericii Ortodoxe din întreg Imperiul Otoman în epoca fanariotă." },
         ],
       },
       {
         type: "chapter",
-        title: "Capitolul II — Cele șapte Sinoade Ecumenice",
+        title: "Reforma Protestantă și Contrareforma",
         children: [
-          {
-            type: "key-idea",
-            text: "Cele șapte Sinoade Ecumenice (325–787) au definit dogmele fundamentale ale credinței creștine.",
-          },
-          {
-            type: "quote",
-            text: '„Credința dreaptă nu se inventează, ci se transmite."',
-            source: "Principiu patristic",
-          },
+          { type: "key-idea", text: "Martin Luther — 1517, cele 95 de teze la Wittenberg; declanșează Reforma Protestantă." },
+          { type: "key-idea", text: "Jean Calvin — reformator la Geneva, regim teocratic, doctrina dublei predestinări." },
+          { type: "key-idea", text: "Henric al VIII-lea — Actul de Supremație (1534) îl declară singurul cap al Bisericii Angliei; cauza: refuzul papei de a anula căsătoria cu Ecaterina de Aragon." },
+          { type: "key-idea", text: "Contrareforma (Reforma Catolică): Conciliul de la Trento (1545–1563) fixează dogmele catolice; ordinul iezuit fondat de Ignațiu de Loyola." },
+          { type: "key-idea", text: "Noaptea Sfântului Bartolomeu — 1572, masacrul hughenoților în Franța." },
+          { type: "key-idea", text: "Edictul de la Nantes (1598) — Henric IV acordă libertate religioasă hughenoților." },
+          { type: "key-idea", text: "Pacea de la Westfalia (1648) — recunoașterea oficială a pluralismului religios; principiul cuius regio, eius religio." },
         ],
       },
       {
-        type: "exam-questions",
-        questions: [
-          "Prezentați cauzele și consecințele Schismei din 1054.",
-          "Care au fost principalele decizii ale Sinodului I Ecumenic de la Niceea?",
-          "Descrieți expansiunea creștinismului în primele secole.",
+        type: "chapter",
+        title: "Uniatismul și conflictele confesionale în Est",
+        children: [
+          { type: "key-idea", text: "Uniatismul (Greco-Catolicismul) — Roma promovează unirea ortodocșilor cu păstrarea ritului răsăritean, dar cu acceptarea primatului papal." },
+          { type: "key-idea", text: "Uniunea de la Brest (1596) — o parte a ortodocșilor din Polonia și Ucraina acceptă unirea cu Roma, impulsionați de iezuitul Piotr Skarga." },
+          { type: "key-idea", text: "Scrierea polemică ortodoxă din sec. XVII urmărea delimitarea față de prozelitismul catolic și protestant." },
         ],
       },
       {
-        type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
+        type: "chapter",
+        title: "Raskol-ul și Patriarhia Rusă",
+        children: [
+          { type: "key-idea", text: "Patriarhia Moscovei recunoscută ca a cincea patriarhie în diptice în 1589; primul patriarh — Iov (Job)." },
+          { type: "key-idea", text: "Raskol (Marea Schismă rusă, sec. XVII) — provocat de reformele liturgice ale patriarhului Nikon (uniformizare cu practica grecească)." },
+          { type: "key-idea", text: "Vechii Credincioși (Rascolnici), conduși de protopopul Avvacum, refuză schimbările; simbolul central al disputei: modul semnului crucii (două vs. trei degete)." },
+          { type: "key-idea", text: "Petru cel Mare desființează Patriarhia Rusă în 1721, înlocuind-o cu Sfântul Sinod (conducere colegială)." },
+        ],
+      },
+      {
+        type: "chapter",
+        title: "Chiril Lucaris și controversele doctrinare",
+        children: [
+          { type: "key-idea", text: "Chiril Lucaris — Patriarh Ecumenic, publică în 1629 la Geneva o Mărturisire de credință cu influențe calvine, stârnind controverse majore." },
+          { type: "key-idea", text: "Lucaris a fost sugrumat de ieniceri pe o corabie în 1638, din ordinul sultanului, la instigarea iezuiților." },
+          { type: "key-idea", text: "Corydalism — curent filosofic neo-aristotelic care influențează teologia grecească în sec. XVII (Teofil Corydalleus)." },
+        ],
+      },
+      {
+        type: "chapter",
+        title: "Petru Movilă și Sinoadele de clarificare dogmatică",
+        children: [
+          { type: "key-idea", text: "Petru Movilă — Mitropolit al Kievului, redactează Mărturisirea Ortodoxă (1640) pentru apărarea Ortodoxiei față de catolici și protestanți." },
+          { type: "key-idea", text: "Sinodul de la Iași (1642) — aprobă Mărturisirea lui Petru Movilă după revizuire de teologul grec Meletie Syrigos, care elimină termenul de Purgatoriu (concept catolic)." },
+          { type: "key-idea", text: "Vasile Lupu, domnitorul Moldovei, a sprijinit material Sinodul de la Iași și tipărirea cărților bisericești." },
+          { type: "key-idea", text: "Sinodul de la Ierusalim (1672) — condus de Patriarhul Dositei, respinge definitiv calvinismul și aprobă o nouă Mărturisire de credință ortodoxă." },
+        ],
       },
     ],
   },

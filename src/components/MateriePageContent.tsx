@@ -63,8 +63,7 @@ export default function MateriePageContent({ exam }: Props) {
               color: "#374151",
             }}
           >
-            Acesta este un rezumat al materiei. Dacă vrei să vezi materia mai
-            completă, accesează{" "}
+            Rezumat — pentru detalii complete vezi{" "}
             <button
               onClick={() => setTab("complet")}
               className="font-semibold underline underline-offset-2"

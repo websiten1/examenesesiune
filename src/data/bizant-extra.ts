@@ -60,190 +60,327 @@ export const bizantRezumat: RezumatBlock[] = [
   },
 ];
 
-// ─── TEST ────────────────────────────────────────────────────────────────────
+// ─── TEST (50 întrebări — răspuns corect = varianta A, index 0) ──────────────
 export const bizantTest: TestQuestion[] = [
+  // 1
   {
-    intrebare: "În ce an a fost promulgată Ecloga și de cine?",
+    intrebare: "În ce an au publicat Leon al III-lea și fiul său, Constantin al V-lea, manualul juridic numit Ecloga?",
+    variante: ["726", "717", "754", "787"],
+    corect: 0,
+  },
+  // 2
+  {
+    intrebare: "Cine s-a întâlnit cu Pepin cel Scurt în anul 754 pentru a pune bazele statului papal?",
+    variante: ["Papa Ștefan al II-lea", "Papa Leon al III-lea", "Papa Nicolae I", "Patriarhul Ghenadie Scholarios"],
+    corect: 0,
+  },
+  // 3
+  {
+    intrebare: "În ce an a fost încoronat Carol cel Mare ca împărat roman de apus de către Papa Leon al III-lea?",
+    variante: ["800", "802", "797", "811"],
+    corect: 0,
+  },
+  // 4
+  {
+    intrebare: "Pe ce insulă a fost exilată împărăteasa Irina în anul 802, după ce a fost detronată?",
+    variante: ["Lesbos", "Thera", "Creta", "Cipru"],
+    corect: 0,
+  },
+  // 5
+  {
+    intrebare: "Cine a fost învățatul iconoclast însărcinat de Leon al V-lea să adune documentația teologică pentru reluarea iconoclasmului în 815?",
+    variante: ["Ioan Gramaticul", "Fotie", "Ignatie", "Bardas"],
+    corect: 0,
+  },
+  // 6
+  {
+    intrebare: "Ce împărat a organizat un concurs de frumusețe pentru a-și alege soția, purtând un dialog celebru cu Kasia?",
+    variante: ["Teofil", "Mihail al III-lea", "Leon al V-lea", "Vasile I Macedoneanul"],
+    corect: 0,
+  },
+  // 7
+  {
+    intrebare: "Cum au fost porecliți sfinții Teodor și Teofan al Niceii, martiri ai celei de-a doua perioade iconoclaste?",
+    variante: ["Grapții (Înscrișii)", "Filosofii", "Misticul", "Gramaticienii"],
+    corect: 0,
+  },
+  // 8
+  {
+    intrebare: "Cine a fost unul dintre cei mai străluciți profesori ai Universității reorganizate la palatul Magnaura în timpul lui Mihail III și Bardas?",
+    variante: ["Leon Matematicianul", "Grigorie Palama", "Ghenadie Scholarios", "Varlaam din Calabria"],
+    corect: 0,
+  },
+  // 9
+  {
+    intrebare: "În ce an a devenit Fotie patriarh al Constantinopolului, declanșând disputa cu Papa Nicolae I (schisma fotiană)?",
+    variante: ["858", "843", "863", "864"],
+    corect: 0,
+  },
+  // 10
+  {
+    intrebare: "Ce manuale juridice au fost publicate de Vasile I Macedoneanul pentru a pune bazele noii sale legislații?",
     variante: [
-      "717, de Leon III singur",
-      "726, de Leon III și Constantin V",
-      "754, de Constantin V Copronimul",
-      "787, de Împărăteasa Irina",
+      "Procheiron și Epanagoga",
+      "Ecloga și Basilicalele",
+      "Novelele și Codul lui Iustinian",
+      "De Administrando Imperio și De Ceremoniis",
     ],
-    corect: 1,
+    corect: 0,
   },
+  // 11
   {
-    intrebare: "Ce inovație principală a adus Ecloga față de dreptul roman clasic?",
+    intrebare: "Câte cărți de legi conțineau Basilicalele finalizate de împăratul Leon al VI-lea Filosoful în 888?",
+    variante: ["60", "113", "4", "30"],
+    corect: 0,
+  },
+  // 12
+  {
+    intrebare: "Cu ce patriarh a intrat în conflict Leon al VI-lea din cauza disputei tetragamice (a patra căsătorie)?",
+    variante: ["Nicolae Misticul", "Fotie", "Ignatie", "Ghenadie Scholarios"],
+    corect: 0,
+  },
+  // 13
+  {
+    intrebare: "Cine a adus Sfânta Mahramă (Mandylion-ul) de la Edessa la Constantinopol în anul 944?",
+    variante: ["Generalul Ioan Curcuas", "Alexios Stratigopulos", "Nichifor Focas", "Ioan Tzimiskes"],
+    corect: 0,
+  },
+  // 14
+  {
+    intrebare: "Care dintre următoarele lucrări a fost redactată sub Vasile I și NU de către Constantin Porfirogenetul?",
+    variante: ["Epanagoga", "De Administrando Imperio", "De Ceremoniis", "De Thematibus"],
+    corect: 0,
+  },
+  // 15
+  {
+    intrebare: "În ce ani a avut loc creștinarea rușilor prin botezul cneazului Vladimir?",
+    variante: ["988–989", "944", "911", "971"],
+    corect: 0,
+  },
+  // 16
+  {
+    intrebare: "Cu cine s-a căsătorit cneazul Vladimir în urma deciziei sale de a se creștina?",
+    variante: ["Principesa porfirogenetă Ana", "Sfânta Teofana", "Zoe", "Teodora"],
+    corect: 0,
+  },
+  // 17
+  {
+    intrebare: "Care a fost succesiunea corectă a celor trei soți ai împărătesei Zoe?",
     variante: [
-      "A reintrodus pedeapsa cu moartea pentru toate infracțiunile",
-      "A fost scrisă în latină și greacă în paralel",
-      "A introdus pedepse corporale (mutilări) în locul multor execuții, influențată de morala creștină",
-      "A abolit complet dreptul de proprietate privată",
+      "Roman III, Mihail IV, Constantin IX",
+      "Roman I, Vasile I, Leon VI",
+      "Constantin VI, Nichifor I, Leon V",
+      "Mihail III, Roman II, Vasile II",
     ],
-    corect: 2,
+    corect: 0,
   },
+  // 18
   {
-    intrebare: "Care dintre următorii termeni îi desemnează pe apărătorii icoanelor?",
-    variante: ["Iconoclaști", "Iconomahi", "Iconoduli", "Monotheliți"],
-    corect: 2,
+    intrebare: "În ce perioadă a domnit singură împărăteasa Teodora, ultima reprezentantă a dinastiei Macedonene?",
+    variante: ["1055–1056", "1042", "1054", "1071"],
+    corect: 0,
   },
+  // 19
   {
-    intrebare:
-      "Care a fost motivul politic principal al declanșării iconoclasmului de către Leon al III-lea?",
+    intrebare: "În ce an a acordat Alexie I Comnenul privilegii comerciale imense venețienilor prin hrisovul de aur?",
+    variante: ["1082", "1081", "1122", "1204"],
+    corect: 0,
+  },
+  // 20
+  {
+    intrebare: "Care doi împărați din dinastia Comnenilor i-au zdrobit definitiv pe pecenegi în anii 1091, respectiv 1122?",
+    variante: ["Alexios I și Ioan II", "Vasile II și Constantin IX", "Nichifor I și Leon V", "Mihail VIII și Constantin XI"],
+    corect: 0,
+  },
+  // 21
+  {
+    intrebare: "Ce formațiune statală bizantină a fost organizată de dinastia Lascarizilor după prăbușirea capitalei din 1204?",
+    variante: ["Imperiul de la Niceea", "Imperiul de Trapezunt", "Despotatul Epirului", "Imperiul Latin de Răsărit"],
+    corect: 0,
+  },
+  // 22
+  {
+    intrebare: "Cine a condus Despotatul Epirului după fragmentarea imperiului în urma Cruciadei a IV-a din 1204?",
+    variante: ["Familia Anghelilor", "Familia Lascarizilor", "Marii Comneni", "Paleologii"],
+    corect: 0,
+  },
+  // 23
+  {
+    intrebare: "Ce general a condus trupele de la Niceea care au recucerit Constantinopolul în iulie 1261?",
+    variante: ["Alexios Stratigopulos", "Ioan Curcuas", "Mihail VIII Paleologul", "Ioan VI Cantacuzino"],
+    corect: 0,
+  },
+  // 24
+  {
+    intrebare: "În ce an a fost proclamată oficial doctrina palamită (despre energiile necreate) la Constantinopol?",
+    variante: ["1351", "1274", "1402", "1439"],
+    corect: 0,
+  },
+  // 25
+  {
+    intrebare: "La ce curte s-a retras Dimitrie Paleologul după prăbușirea Moreei în anul 1460?",
+    variante: ["La curtea sultanului otoman", "În Italia, la Roma", "În Rusia, la Moscova", "În Despotatul Epirului"],
+    corect: 0,
+  },
+  // 26
+  {
+    intrebare: "Cu cine s-a căsătorit Sofia, fiica lui Toma Paleologul, asigurând transferul simbolic al moștenirii imperiale?",
     variante: [
-      "Dorința de unificare religioasă cu islamul",
-      "Limitarea puterii economice și politice a mănăstirilor",
-      "Influența directă a papei de la Roma",
-      "Reformarea armatei stratiotice",
+      "Cneazul Ivan al III-lea al Rusiei",
+      "Cneazul Vladimir",
+      "Sultanul Mehmed al II-lea",
+      "Țarul Boris-Mihail",
     ],
-    corect: 1,
+    corect: 0,
   },
+  // 27
   {
-    intrebare:
-      "Cum se numea faza iconoclasmului îndreptată specific împotriva monahilor sub Constantin V?",
-    variante: ["Monofizitism", "Monahomahie", "Monoenergetism", "Montanism"],
-    corect: 1,
+    intrebare: "Cine a fost numit de turci ca prim patriarh ecumenic al Constantinopolului după căderea orașului?",
+    variante: ["Ghenadie Scholarios", "Grigorie Palama", "Nicolae Misticul", "Fotie"],
+    corect: 0,
   },
+  // 28
   {
-    intrebare: "Sinodul de la Hieria (754), care a condamnat icoanele, a fost convocat de:",
+    intrebare: "În ce an a avut loc marele asediu al Constantinopolului de către avari, slavi și perși sub domnia lui Heraclius?",
+    variante: ["626", "632", "680", "717"],
+    corect: 0,
+  },
+  // 29
+  {
+    intrebare: "Ce erezie sau doctrină religioasă a fost condamnată oficial în cadrul Sinodului al VI-lea Ecumenic (680–681)?",
+    variante: ["Monotelismul", "Iconoclasmul", "Isihasmul", "Bogomilismul"],
+    corect: 0,
+  },
+  // 30
+  {
+    intrebare: "În ce an a fost recunoscut oficial primul stat bulgar în sudul Dunării de către Imperiul Bizantin?",
+    variante: ["681", "626", "726", "811"],
+    corect: 0,
+  },
+  // 31
+  {
+    intrebare: "Ce lider militar străin l-a înfrânt și l-a ucis în bătălie pe împăratul bizantin Nichifor I în anul 811?",
+    variante: ["Hanul bulgar Krum", "Sultanul selgiucid Alp Arslan", "Mongolul Tamerlan", "Sultanul Mehmed al II-lea"],
+    corect: 0,
+  },
+  // 32
+  {
+    intrebare: "Care este data exactă la care s-a produs Restaurarea definitivă a Ortodoxiei (cultul icoanelor) sub Teodora?",
+    variante: ["11 martie 843", "29 mai 1453", "15 august 944", "27 iulie 1261"],
+    corect: 0,
+  },
+  // 33
+  {
+    intrebare: "În ce an au pornit Sfinții Chiril și Metodiu misiunea lor faimoasă de creștinare a slavilor în Moravia?",
+    variante: ["863", "864", "858", "867"],
+    corect: 0,
+  },
+  // 34
+  {
+    intrebare: "Sub ce țar a avut loc creștinarea oficială a bulgarilor în anul 864?",
+    variante: ["Boris-Mihail", "Krum", "Simeon", "Samuel"],
+    corect: 0,
+  },
+  // 35
+  {
+    intrebare: "În ce an a preluat Vasile I Macedoneanul tronul prin înlăturarea lui Mihail al III-lea, fondând noua dinastie?",
+    variante: ["867", "888", "858", "911"],
+    corect: 0,
+  },
+  // 36
+  {
+    intrebare: "În ce an a fost publicată vasta colecție legislativă de 60 de cărți numită Basilicalele?",
+    variante: ["888", "867", "911", "944"],
+    corect: 0,
+  },
+  // 37
+  {
+    intrebare: "Ce general faimos (viitor împărat) a recucerit insula Creta de la arabi în anul 961?",
+    variante: ["Nichifor Focas", "Ioan Tzimiskes", "Roman I Lekapenos", "Vasile al II-lea"],
+    corect: 0,
+  },
+  // 38
+  {
+    intrebare: "Unde i-a înfrânt Ioan Tzimiskes pe rușii cneazului Sveatoslav în anul 971?",
+    variante: ["Durostorum", "Kleidion", "Mantzikert", "Hiereia"],
+    corect: 0,
+  },
+  // 39
+  {
+    intrebare: "În ce an i-a zdrobit împăratul Vasile al II-lea pe bulgari în bătălia de la Kleidion?",
+    variante: ["1014", "1018", "1054", "1071"],
+    corect: 0,
+  },
+  // 40
+  {
+    intrebare: "Ce bătălie dezastruoasă din 1071 a dus la capturarea împăratului Roman IV Diogene de către turcii selgiucizi?",
+    variante: ["Bătălia de la Mantzikert", "Bătălia de la Kleidion", "Bătălia de la Ankara", "Asediul de la Tarsos"],
+    corect: 0,
+  },
+  // 41
+  {
+    intrebare: "Cine a condus răscoala vlahilor și bulgarilor din anul 1185, care a rupt independența teritoriului din Balcani?",
+    variante: ["Petru și Asan", "Chiril și Metodiu", "Dimitrie și Toma", "Alexie și Ioan Comnenul"],
+    corect: 0,
+  },
+  // 42
+  {
+    intrebare: "În ce an a avut loc Unirea de la Lyon, o încercare eșuată de unire a bisericilor semnată de Mihail VIII Paleologul?",
+    variante: ["1274", "1261", "1351", "1439"],
+    corect: 0,
+  },
+  // 43
+  {
+    intrebare: "Ce bătălie din 1402, în care mongolii lui Tamerlan l-au înfrânt pe sultanul Bayazid, a oferit Bizanțului un răgaz istoric?",
+    variante: ["Bătălia de la Ankara", "Bătălia de la Mantzikert", "Bătălia de la Călugăreni", "Bătălia de la Kosovo"],
+    corect: 0,
+  },
+  // 44
+  {
+    intrebare: "La ce sinod din anul 1439 s-a semnat actul oficial (dar contestat acasă) de unire religioasă cu Roma?",
+    variante: ["Sinodul de la Ferrara-Florența", "Sinodul de la Hiereia", "Sinodul de la Lyon", "Sinodul de la Chalcedon"],
+    corect: 0,
+  },
+  // 45
+  {
+    intrebare: "Care este numele ultimului împărat bizantin, căzut în luptă pe data de 29 mai 1453?",
     variante: [
-      "Leon al III-lea Isaurianul",
-      "Irina, ca regentă",
-      "Constantin al V-lea Copronimul",
-      "Patriarhul Tarasie",
+      "Constantin al XI-lea Paleologul",
+      "Mihail al VIII-lea Paleologul",
+      "Constantin al VI-lea Isaurianul",
+      "Ioan al VIII-lea Paleologul",
     ],
-    corect: 2,
+    corect: 0,
   },
+  // 46
   {
-    intrebare: "Cine a convocat Sinodul VII Ecumenic de la Niceea (787)?",
-    variante: [
-      "Mihail al III-lea",
-      "Împărăteasa Irina, ca regentă",
-      "Patriarhul Fotie",
-      "Împăratul Teofil",
-    ],
-    corect: 1,
+    intrebare: "În ce an a început oficial prima perioadă a crizei iconoclaste sub împăratul Leon al III-lea?",
+    variante: ["726", "681", "754", "787"],
+    corect: 0,
   },
+  // 47
   {
-    intrebare:
-      "Ce i-a răspuns Kasia împăratului Teofil când acesta a spus 'Prin femeie ne-a venit tot răul'?",
-    variante: [
-      "A tăcut și a acceptat",
-      "Nu sunt demnă să fiu împărăteasă",
-      "Dar tot prin femeie ne-a venit și tot binele (referire la Maica Domnului)",
-      "Prefer viața de mănăstire",
-    ],
-    corect: 2,
+    intrebare: "Care împărat a emis cele 113 Novele ca parte a activității sale legislative?",
+    variante: ["Leon VI Filosoful", "Vasile I Macedoneanul", "Constantin Porfirogenetul", "Alexie I Comnenul"],
+    corect: 0,
   },
+  // 48
   {
-    intrebare: "Cine sunt 'Grapții' și de ce poartă acest nume?",
-    variante: [
-      "Canonicii care au redactat canoanele Sinodului VII Ecumenic",
-      "Doi frați monahi iconofili cărora li s-au gravat versuri insulte pe față cu fierul înroșit",
-      "Secretarii patriarhului Fotie",
-      "Generalii care au apărat Constantinopolul în 718",
-    ],
-    corect: 1,
+    intrebare: "Cine a fost teologul care a fundamentat isihasmul și a apărat monahii în timpul disputei palamite din secolul al XIV-lea?",
+    variante: ["Sfântul Grigorie Palama", "Sfântul Teodor Graptul", "Patriarhul Fotie", "Ghenadie Scholarios"],
+    corect: 0,
   },
+  // 49
   {
-    intrebare: "Cine a restaurat definitiv cultul icoanelor în 843 (Triumful Ortodoxiei)?",
-    variante: ["Irina", "Kasia", "Teodora, văduva lui Teofil", "Zoe Porfirogeneta"],
-    corect: 2,
+    intrebare: "Din ce dinastie făceau parte conducătorii care au pus bazele Imperiului de Trapezunt în 1204?",
+    variante: ["Marii Comneni", "Lascarizii", "Paleologii", "Anghelii"],
+    corect: 0,
   },
+  // 50
   {
-    intrebare:
-      "Cine a reorganizat Universitatea de la Magnaura sub domnia lui Mihail al III-lea?",
-    variante: ["Fotie cel Mare", "Ioan Gramaticul", "Cezarul Bardas", "Leon Matematicianul"],
-    corect: 2,
-  },
-  {
-    intrebare: "De ce a izbucnit Schisma Fotiană?",
-    variante: [
-      "Fotie a refuzat să-l boteze pe hanul bulgar Boris",
-      "Ignatie a abdicat, Fotie a fost ales patriarh și papa Nicolae I a refuzat să-l recunoască",
-      "Irina a desemnat un patriarh fără acordul sinodului",
-      "Fotie a introdus Filioque în Crez",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare:
-      "Ce a condamnat Fotie la sinodul din 867 față de practica Bisericii Apusene?",
-    variante: [
-      "Celibatul episcopilor",
-      "Adaosul Filioque în Crez și pretențiile de primat universal ale papei",
-      "Folosirea limbii latine în liturghie",
-      "Botezul prin stropire",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare: "Ce cod de legi a promulgat Vasile I Macedoneanul în 879?",
-    variante: ["Ecloga", "Procheiron", "Basilicale", "Epanagoga"],
-    corect: 1,
-  },
-  {
-    intrebare: "De ce i s-a dat lui Leon al VI-lea titlul de 'Filosoful'?",
-    variante: [
-      "A studiat filosofia la Atena",
-      "A câștigat bătălii strategice cu inteligență",
-      "Cultura sa enciclopedică — titlul cel mai înalt acordat de Universitatea din Constantinopol",
-      "A scris un tratat filosofic despre natura imperiului",
-    ],
-    corect: 2,
-  },
-  {
-    intrebare:
-      "Cum a fost respins atacul flotei rusești conduse de Igor asupra Constantinopolului în 941?",
-    variante: [
-      "Prin o alianță cu bulgarii",
-      "Prin focul grecesc al flotei bizantine și trupele lui Ioan Curcuas pe uscat",
-      "Printr-o furtună care a distrus flota rusă",
-      "Prin plata unui tribut substanțial lui Igor",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare: "Cine a proclamat Cruciada a IV-a și în ce an?",
-    variante: [
-      "Papa Urban II, în 1095",
-      "Papa Inocențiu III, în 1198",
-      "Papa Grigorie IX, în 1202",
-      "Împăratul Henric VI, în 1196",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare:
-      "Ce este isihasmul în contextul spiritualității bizantine din sec. XIV?",
-    variante: [
-      "Un curent iconoclast târziu",
-      "O practică de rugăciune contemplativă a inimii și o doctrină despre energiile divine, apărată de Grigorie Palamas",
-      "Un curent juridic privind autonomia mănăstirilor",
-      "O sectă dualistă condamnată la Sinodul de la Florența",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare: "Ce s-a decis la Conciliul de la Florența (1439) în privința disputelor teologice?",
-    variante: [
-      "Răsăritul a convins Apusul să renunțe la Filioque",
-      "S-a dat câștig de cauză latinilor în chestiunile controversate (Filioque, primat papal etc.)",
-      "S-a ajuns la un compromis egal între cele două tabere",
-      "Conciliul s-a încheiat fără niciun acord",
-    ],
-    corect: 1,
-  },
-  {
-    intrebare:
-      "Prin ce formă a ajuns influența bizantină în spațiul românesc înainte de sec. XVI?",
-    variante: [
-      "Direct în greacă, prin Patriarhia de Constantinopol",
-      "Prin traduceri în limba slavonă (medio-bulgară), care era limba oficială a statului și a Bisericii",
-      "Prin colonii grecești stabilite pe teritoriul românesc",
-      "Prin misionari trimiși direct de la Curtea Imperială",
-    ],
-    corect: 1,
+    intrebare: "Ce concept istoriografic celebru, creat de Nicolae Iorga, definește supraviețuirea spiritului și formelor bizantine după 1453?",
+    variante: ["Bizanț după Bizanț", "Schisma Fotiană", "Armonia imperială", "Triumful Ortodoxiei"],
+    corect: 0,
   },
 ];
 

@@ -1,6 +1,16 @@
+import {
+  type RezumatBlock,
+  type TestQuestion,
+  bizantRezumat,
+  bizantTest,
+  bizantMaterieComplet,
+} from "./bizant-extra";
+
+export type { RezumatBlock, TestQuestion } from "./bizant-extra";
+
 export type ExamStart = {
-  date: string; // YYYY-MM-DD
-  time: string; // HH:MM
+  date: string;
+  time: string;
   timezone: string;
 };
 
@@ -18,12 +28,15 @@ export type Exam = {
   slug: string;
   discipline: string;
   profesor: string;
-  data: string; // text afișat
+  data: string;
   interval: string;
   sala: string;
-  examStart: ExamStart | null; // null pentru VP
+  examStart: ExamStart | null;
   isVP: boolean;
   materie: ContentBlock[];
+  rezumat?: RezumatBlock[];
+  test?: TestQuestion[];
+  materieComplet?: ContentBlock[];
 };
 
 export const exams: Exam[] = [
@@ -680,6 +693,9 @@ export const exams: Exam[] = [
         ],
       },
     ],
+    rezumat: bizantRezumat,
+    test: bizantTest,
+    materieComplet: bizantMaterieComplet,
   },
   {
     slug: "didactica-specializarii",

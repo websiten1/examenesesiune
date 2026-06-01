@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { exams } from "@/data/exams";
-import MaterieRenderer from "@/components/MaterieRenderer";
+import MateriePageContent from "@/components/MateriePageContent";
 import CountdownTimer from "@/components/CountdownTimer";
 
 type Props = {
@@ -98,7 +98,7 @@ export default async function MateriePage({ params }: Props) {
           </div>
 
           {exam.materie.length > 0 ? (
-            <MaterieRenderer blocks={exam.materie} />
+            <MateriePageContent exam={exam} />
           ) : (
             <p className="text-slate-400 italic text-sm">
               Materia nu a fost adăugată încă.

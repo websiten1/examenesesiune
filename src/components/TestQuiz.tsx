@@ -7,7 +7,23 @@ type Props = {
   questions: TestQuestion[];
 };
 
+function shuffleQuestions(questions: TestQuestion[]): TestQuestion[] {
+  return questions.map((q) => {
+    const indices = q.variante.map((_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    return {
+      ...q,
+      variante: indices.map((i) => q.variante[i]),
+      corect: indices.indexOf(q.corect),
+    };
+  });
+}
+
 export default function TestQuiz({ questions }: Props) {
+  const [shuffled, setShuffled] = useState(() => shuffleQuestions(questions));
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<(number | null)[]>(
@@ -15,7 +31,7 @@ export default function TestQuiz({ questions }: Props) {
   );
   const [finished, setFinished] = useState(false);
 
-  const q = questions[current];
+  const q = shuffled[current];
   const isAnswered = selected !== null;
   const isCorrect = selected === q.corect;
 
@@ -28,7 +44,7 @@ export default function TestQuiz({ questions }: Props) {
   }
 
   function goNext() {
-    if (current + 1 < questions.length) {
+    if (current + 1 < shuffled.length) {
       setCurrent(current + 1);
       setSelected(answers[current + 1]);
     } else {
@@ -37,14 +53,16 @@ export default function TestQuiz({ questions }: Props) {
   }
 
   function restart() {
+    const next = shuffleQuestions(questions);
+    setShuffled(next);
     setCurrent(0);
     setSelected(null);
     setAnswers(Array(questions.length).fill(null));
     setFinished(false);
   }
 
-  const score = answers.filter((a, i) => a === questions[i].corect).length;
-  const pct = Math.round((score / questions.length) * 100);
+  const score = answers.filter((a, i) => a === shuffled[i].corect).length;
+  const pct = Math.round((score / shuffled.length) * 100);
 
   if (finished) {
     const grade =
@@ -69,7 +87,7 @@ export default function TestQuiz({ questions }: Props) {
             {pct}%
           </div>
           <p className="text-slate-400 text-sm mt-1">
-            {score} din {questions.length} corecte
+            {score} din {shuffled.length} corecte
           </p>
           <p className="mt-4 font-semibold text-lg" style={{ color: grade.color }}>
             {grade.label}
@@ -78,14 +96,11 @@ export default function TestQuiz({ questions }: Props) {
 
         <div className="bg-white p-6">
           <div className="space-y-3 mb-6 max-h-72 overflow-y-auto">
-            {questions.map((q, i) => {
+            {shuffled.map((q, i) => {
               const a = answers[i];
               const ok = a === q.corect;
               return (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 text-sm"
-                >
+                <div key={i} className="flex items-start gap-3 text-sm">
                   <span
                     className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5"
                     style={{ background: ok ? "#059669" : "#7C2D34" }}
@@ -125,17 +140,17 @@ export default function TestQuiz({ questions }: Props) {
         style={{ background: "#0f172a" }}
       >
         <p className="text-slate-400 text-xs uppercase tracking-widest">
-          Întrebarea {current + 1} din {questions.length}
+          Întrebarea {current + 1} din {shuffled.length}
         </p>
         <div className="flex gap-1">
-          {questions.map((_, i) => (
+          {shuffled.map((_, i) => (
             <span
               key={i}
               className="w-2 h-2 rounded-full"
               style={{
                 background:
                   answers[i] !== null
-                    ? answers[i] === questions[i].corect
+                    ? answers[i] === shuffled[i].corect
                       ? "#059669"
                       : "#7C2D34"
                     : i === current
@@ -162,11 +177,10 @@ export default function TestQuiz({ questions }: Props) {
                 bg = "bg-emerald-50 border-emerald-400";
                 text = "text-emerald-800 font-semibold";
               } else if (i === selected && i !== q.corect) {
-                bg = "border-red-300";
+                bg = "bg-red-50 border-red-300";
                 text = "text-red-700 line-through";
-                bg += " bg-red-50";
               }
-            } else if (!isAnswered) {
+            } else {
               bg = "bg-white border-slate-200 hover:border-slate-400 hover:bg-slate-50 cursor-pointer";
             }
 
@@ -209,7 +223,7 @@ export default function TestQuiz({ questions }: Props) {
             cursor: isAnswered ? "pointer" : "not-allowed",
           }}
         >
-          {current + 1 === questions.length ? "Vezi rezultatul" : "Următoarea →"}
+          {current + 1 === shuffled.length ? "Vezi rezultatul" : "Următoarea →"}
         </button>
       </div>
     </div>

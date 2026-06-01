@@ -8,6 +8,8 @@ import {
 import { ibuTest } from "./ibu-extra";
 import { iborMaterieComplet, iborTest } from "./ibor-extra";
 import { vtRezumat, vtMaterieComplet, vtTest } from "./vt-extra";
+import { didacticaMaterie } from "./didactica-extra";
+import { ntMaterie, ntTest } from "./nt-extra";
 
 export type { RezumatBlock, TestQuestion } from "./bizant-extra";
 
@@ -25,7 +27,8 @@ export type ContentBlock =
   | { type: "quote"; text: string; source?: string }
   | { type: "exam-questions"; questions: string[] }
   | { type: "observation"; text: string }
-  | { type: "paragraph"; text: string };
+  | { type: "paragraph"; text: string }
+  | { type: "download"; label: string; url: string };
 
 export type Exam = {
   slug: string;
@@ -709,45 +712,7 @@ export const exams: Exam[] = [
     sala: "S1",
     examStart: { date: "2026-06-04", time: "09:00", timezone: "Europe/Bucharest" },
     isVP: false,
-    materie: [
-      {
-        type: "chapter",
-        title: "Capitolul I — Fundamente ale didacticii religiei",
-        children: [
-          {
-            type: "key-idea",
-            text: "Didactica este știința predării-învățării, aplicată la specificul disciplinei teologice.",
-          },
-          {
-            type: "definition",
-            term: "Competență didactică",
-            text: "Ansamblul cunoștințelor, abilităților și atitudinilor necesare unui cadru didactic pentru a realiza un act educativ eficient.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Metode și mijloace de predare în ora de religie",
-        children: [
-          {
-            type: "key-idea",
-            text: "Metodele active (conversația euristică, descoperirea, jocul didactic) stimulează implicarea elevilor.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Care sunt principiile didacticii aplicate la ora de religie?",
-          "Descrieți proiectul didactic al unei lecții de religie.",
-          "Cum se evaluează competențele la disciplina religie?",
-        ],
-      },
-      {
-        type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
-      },
-    ],
+    materie: didacticaMaterie,
   },
   {
     slug: "aghiografie",
@@ -844,41 +809,13 @@ export const exams: Exam[] = [
     isVP: false,
     materie: [
       {
-        type: "chapter",
-        title: "Capitolul I — Istoria muzicii bisericești ortodoxe",
-        children: [
-          {
-            type: "key-idea",
-            text: "Muzica bizantină este moștenirea directă a cântării bisericești din primele secole creștine.",
-          },
-          {
-            type: "definition",
-            term: "Octoih",
-            text: "Carte de cult care cuprinde cântările celor opt glasuri, folosite alternativ pe parcursul anului liturgic.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Glasurile și semnele muzicii psaltice",
-        children: [
-          {
-            type: "key-idea",
-            text: "Sistemul celor opt glasuri (ehuri) structurează repertoriul muzical al Bisericii Ortodoxe.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Descrieți principalele trăsături ale muzicii bizantine.",
-          "Care este structura sistemului de opt glasuri?",
-          "Prezentați cântările Liturghiei Sfântului Ioan Gură de Aur.",
-        ],
-      },
-      {
         type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar. Atenție: intervalul orar este 10:00–18:00.",
+        text: "La examen va fi dat unul dintre exercițiile din carte — trebuie repetate toate exercițiile din suportul de curs.",
+      },
+      {
+        type: "download",
+        label: "Descarcă cartea — Pr. Barnea Alexandrel: Curs practic de Muzică bisericească",
+        url: "/muzica-barnea.pdf",
       },
     ],
   },
@@ -946,45 +883,8 @@ export const exams: Exam[] = [
     sala: "Iustin Moisescu",
     examStart: { date: "2026-06-17", time: "14:00", timezone: "Europe/Bucharest" },
     isVP: false,
-    materie: [
-      {
-        type: "chapter",
-        title: "Capitolul I — Introducere în Noul Testament",
-        children: [
-          {
-            type: "definition",
-            term: "Evanghelie",
-            text: '„Veste bună” — termenul desemnează atât mesajul mântuirii, cât și cele patru cărți canonice despre viața lui Iisus.',
-          },
-          {
-            type: "key-idea",
-            text: "Noul Testament cuprinde 27 de cărți: Evanghelii, Faptele Apostolilor, Epistole și Apocalipsa.",
-          },
-        ],
-      },
-      {
-        type: "chapter",
-        title: "Capitolul II — Teologia sinoptică",
-        children: [
-          {
-            type: "key-idea",
-            text: "Evangheliile după Matei, Marcu și Luca sunt numite sinoptice datorită perspectivei comune asupra vieții lui Hristos.",
-          },
-        ],
-      },
-      {
-        type: "exam-questions",
-        questions: [
-          "Prezentați canonul Noului Testament.",
-          "Care sunt particularitățile teologice ale Evangheliei după Ioan?",
-          "Descrieți teologia paulină a mântuirii.",
-        ],
-      },
-      {
-        type: "observation",
-        text: "Adaugă materia specifică predată la curs și seminar.",
-      },
-    ],
+    test: ntTest,
+    materie: ntMaterie,
   },
   {
     slug: "istoria-bisericeasca-universala",

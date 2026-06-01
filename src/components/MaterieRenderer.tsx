@@ -226,6 +226,19 @@ function ContentItem({ block }: { block: ContentBlock }) {
         <p className="text-slate-700 text-sm leading-relaxed">{block.text}</p>
       );
 
+    case "download":
+      return (
+        <a
+          href={block.url}
+          download
+          className="flex items-center gap-3 px-5 py-4 rounded-xl font-semibold text-sm transition-all hover:opacity-90 active:scale-95"
+          style={{ background: "#7C2D34", color: "#fff", textDecoration: "none" }}
+        >
+          <span style={{ fontSize: "1.2rem" }}>⬇</span>
+          <span>{block.label}</span>
+        </a>
+      );
+
     default:
       return null;
   }

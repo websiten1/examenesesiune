@@ -136,7 +136,7 @@ export default async function MateriePage({ params }: Props) {
 
       <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
         <p>Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
-        <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026</p>
+        <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026 · Andrei Radu</p>
       </footer>
     </div>
   );

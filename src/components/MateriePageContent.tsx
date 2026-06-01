@@ -55,24 +55,26 @@ export default function MateriePageContent({ exam }: Props) {
       {tab === "tabel" && exam.rezumat && <TabelView rezumat={exam.rezumat} />}
       {tab === "rezumat" && (
         <>
-          <div
-            className="rounded-xl px-5 py-4 mb-6 text-sm"
-            style={{
-              background: "#f0fdf4",
-              borderLeft: "4px solid #059669",
-              color: "#374151",
-            }}
-          >
-            Rezumat — pentru detalii complete vezi{" "}
-            <button
-              onClick={() => setTab("complet")}
-              className="font-semibold underline underline-offset-2"
-              style={{ color: "#7C2D34" }}
+          {hasComplet && (
+            <div
+              className="rounded-xl px-5 py-4 mb-6 text-sm"
+              style={{
+                background: "#f0fdf4",
+                borderLeft: "4px solid #059669",
+                color: "#374151",
+              }}
             >
-              Cursul complet
-            </button>
-            .
-          </div>
+              Rezumat — pentru detalii complete vezi{" "}
+              <button
+                onClick={() => setTab("complet")}
+                className="font-semibold underline underline-offset-2"
+                style={{ color: "#7C2D34" }}
+              >
+                Cursul complet
+              </button>
+              .
+            </div>
+          )}
           <MaterieRenderer blocks={exam.materie} />
         </>
       )}

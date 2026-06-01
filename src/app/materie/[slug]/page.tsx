@@ -37,7 +37,7 @@ export default async function MateriePage({ params }: Props) {
       >
         <div className="max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.5)" }}>
-            Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae»
+            Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae»
           </p>
           <h1 className="text-xl md:text-2xl font-bold leading-tight">
             {exam.discipline}
@@ -86,23 +86,40 @@ export default async function MateriePage({ params }: Props) {
 
         {/* Materia */}
         <section className="mt-10">
-          <div className="flex items-center gap-3 mb-6">
-            <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
-              Materia de studiu
-            </h2>
-            {exam.materie.length > 0 && (
-              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">
-                {exam.materie.length} capitole
-              </span>
-            )}
-          </div>
-
-          {exam.materie.length > 0 ? (
-            <MateriePageContent exam={exam} />
+          {exam.isVP ? (
+            <div
+              className="rounded-xl px-5 py-5 text-sm"
+              style={{
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
+                borderLeft: "4px solid #94a3b8",
+              }}
+            >
+              <p className="font-semibold text-slate-700 mb-1">Fără examen scris</p>
+              <p className="text-slate-500 leading-relaxed">
+                Această disciplină este marcată ca verificare pe parcurs și nu are o dată de examen indicată în grafic. Nu există examen scris — evaluarea a fost realizată în timpul semestrului.
+              </p>
+            </div>
           ) : (
-            <p className="text-slate-400 italic text-sm">
-              Materia nu a fost adăugată încă.
-            </p>
+            <>
+              <div className="flex items-center gap-3 mb-6">
+                <h2 className="font-bold text-lg" style={{ color: "#0f172a" }}>
+                  Materia de studiu
+                </h2>
+                {exam.materie.length > 0 && (
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">
+                    {exam.materie.length} capitole
+                  </span>
+                )}
+              </div>
+              {exam.materie.length > 0 ? (
+                <MateriePageContent exam={exam} />
+              ) : (
+                <p className="text-slate-400 italic text-sm">
+                  Materia nu a fost adăugată încă.
+                </p>
+              )}
+            </>
           )}
         </section>
 
@@ -118,7 +135,7 @@ export default async function MateriePage({ params }: Props) {
       </main>
 
       <footer className="mt-16 border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-400">
-        <p>Facultatea de Teologie Ortodoxă «Sf. Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
+        <p>Facultatea de Teologie Ortodoxă «Sfântul Dumitru Stăniloae» — Universitatea «Alexandru Ioan Cuza» din Iași</p>
         <p className="mt-1">Platformă de organizare a sesiunii, Anul II, 2025–2026</p>
       </footer>
     </div>
